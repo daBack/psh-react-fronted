@@ -1,0 +1,286 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans|Roboto');
+/*
+    ***************************************************
+                    - GENERAL STYLING -
+
+    Including outer and inner wrapper.
+    These should never be edited according to specific page.
+    For that, use specific page wrapper.
+
+    ***************************************************
+*/
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+h2, th {
+    font-family: 'Roboto', sans-serif;
+    letter-spacing: 1px;
+}
+
+p, a, td {
+    font-family: 'Open Sans', sans-serif;
+}
+
+a {
+    text-decoration: none;
+    color: #45b3c6;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.outer-wrapper {
+    display: flex;
+    height: 100%;
+    width: 100%;
+}
+
+.inner-wrapper {
+    display: flex;
+    height: 100%;
+    width: 100%;
+}
+
+.flex-column {
+    display: flex;
+    flex-flow: column nowrap;
+}
+/*
+    ***************************************************
+
+
+                                    - Index Login -
+
+
+    ***************************************************
+*/
+
+
+
+/*
+    ***************************************************
+
+
+                                    - Menu style -
+
+
+    ***************************************************
+*/
+
+.menu {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    height: 80px;
+    background-color: #26B225;
+    border-bottom: 5px solid #147D31;
+}
+
+.seg {
+    flex: 1;
+    display: flex;
+    text-align: center;
+}
+
+    .seg h2 {
+        color: #FBFCF7;
+    }
+
+.segment-1 {
+    padding-left: 2%;
+    margin: auto
+}
+
+.segment-2 {
+    justify-content: center;
+    margin: auto;
+}
+
+.segment-3 {
+    justify-content: flex-end;
+}
+
+.inner-seg-link {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 30px;
+    color: #FBFCF7;
+}
+
+    .inner-seg-link:hover {
+        background-color: #FBFCF7;
+        color: #2E2E2D;
+        text-decoration: none;
+    }
+
+.active-nav {
+    background-color: #FBFCF7;
+    color: #2E2E2D;
+    text-decoration: none;
+}
+
+svg {
+    align-self: center;
+    height: 2em;
+    width: 2em;
+    font-size: 2em !important
+}
+
+span {
+    color: #2E2E2D;
+}
+
+/*
+    ***************************************************
+
+
+                                    - Table invoice style -
+
+
+    ***************************************************
+*/
+
+.invoices-table {
+    display: flex;
+    flex-direction: column
+}
+
+.invoices-table-row {
+    display: flex;
+    flex-direction: row;
+    color: #494D52
+}
+
+.invoices-table thead {
+    background-color: #4882BF;
+    border-bottom: 3px solid #2B4E73
+}
+
+.invoices-table-head {
+    display: flex;
+    flex: 1;
+    font-size: 1.1em;
+    height: 50px;
+    color: #FBFCF7;
+    padding: 0 2%;
+}
+
+.fg:nth-child(1) {
+    flex: 3;
+}
+
+.fg:nth-child(2) {
+    flex: 2;
+}
+
+.fg:nth-child(3) {
+    flex: 2;
+}
+
+.fg:nth-child(4) {
+    flex: 1;
+}
+
+.fg:nth-child(5) {
+    flex: 1;
+}
+
+.invoices-table-head h4, .invoices-table-row p {
+    margin: auto 0;
+}
+
+.invoices-table tbody {
+    overflow-y: auto;
+}
+
+.invoices-table-data {
+    display: flex;
+    flex: 1;
+    padding: 0 2%;
+    align-items: center;
+}
+
+.chess {
+    min-height: 45px;
+    border-bottom: 1px solid #D3E0ED;
+}
+
+.chess:nth-child(odd) {
+    background-color: #F8FAFF;
+}
+
+.chess:nth-child(even) {
+    background-color: #fff;
+}
+
+    /*
+        ***************************************************
+
+
+                                        - Toast -
+
+
+        ***************************************************
+    */
+
+   .toast, .toast-active {
+       position: absolute;
+       opacity: 0;
+       display: flex;
+       justify-content: center;
+       align-items: center;
+       flex-direction: column;
+       left: 25%;
+       top: 10%;
+       /* height: 60px; */
+       width: 50%;
+       font-size: 1.5em;
+       background-color: #45b3c6;
+       color: white;
+   }
+
+   .toast svg, .toast-active svg{
+       margin: 1% 0;
+   }
+
+   .toast-message{
+       display: flex;
+       width: 100%;
+       justify-content: center;
+       background-color: #3d3d3d;
+       /* color: #2E2E2D; */
+       color: white;
+       padding: 1% 0;
+   }
+
+   .toast-active {
+       animation: toast 3s ease-in;
+   }
+
+@keyframes toast {
+    0% {
+        opacity: 0;
+        transform: translateY(-5px);
+    }
+    20% {
+        transform: translateY(0px);
+        opacity: 1;
+    }
+    40% {
+    }
+    60% {
+
+    }
+    90% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}

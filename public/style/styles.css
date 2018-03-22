@@ -1,0 +1,235 @@
+@import url("https://fonts.googleapis.com/css?family=Open+Sans|Roboto:400,700|Rubik+Mono+One");
+* {
+  margin: 0;
+  padding: 0; }
+
+html, body {
+  height: 100%; }
+
+h1, h2, h3, h4, button {
+  font-family: "Roboto", sans-serif;
+  letter-spacing: 1px; }
+
+p, a, input {
+  font-family: "Open Sans", sans-serif; }
+
+body {
+  background-color: #ececec; }
+
+.LoginLayout .page-splitter {
+  display: flex;
+  flex-direction: row;
+  min-height: 100vh; }
+  .LoginLayout .page-splitter .page-splitter-left {
+    display: flex;
+    flex-direction: column;
+    flex: 2;
+    background-color: #242323;
+    padding-top: 5%; }
+    .LoginLayout .page-splitter .page-splitter-left h1 {
+      text-transform: uppercase;
+      color: #ececec;
+      font-size: 2.5em;
+      margin: 0 auto;
+      width: 80%;
+      border-bottom: 2px solid #ececec; }
+    .LoginLayout .page-splitter .page-splitter-left button {
+      width: 200px;
+      height: 50px;
+      border: none;
+      background-color: #26B225;
+      color: #ececec;
+      font-size: 1.2em;
+      margin-top: 0 auto;
+      width: 100%;
+      text-transform: uppercase;
+      border-radius: 5px;
+      cursor: pointer; }
+    .LoginLayout .page-splitter .page-splitter-left article {
+      color: #ececec;
+      margin: 0 auto;
+      width: 80%; }
+      .LoginLayout .page-splitter .page-splitter-left article p {
+        padding: 5% 0; }
+  .LoginLayout .page-splitter .page-splitter-right {
+    display: flex;
+    flex: 3;
+    background-color: #ececec;
+    flex-direction: column;
+    justify-content: center; }
+    .LoginLayout .page-splitter .page-splitter-right .login-inner-wrapper {
+      margin: auto;
+      height: 80%;
+      width: 50%; }
+    .LoginLayout .page-splitter .page-splitter-right h1 {
+      color: #4e4e4e;
+      font-size: 2.5em; }
+    .LoginLayout .page-splitter .page-splitter-right .login-box {
+      display: flex;
+      flex-direction: column; }
+      .LoginLayout .page-splitter .page-splitter-right .login-box input {
+        border: none;
+        border-bottom: 1px solid #4e4e4e;
+        background-color: #ececec;
+        margin: 2% 0;
+        padding: 2% 0 1% 0;
+        font-size: 0.9em; }
+      .LoginLayout .page-splitter .page-splitter-right .login-box button {
+        width: 200px;
+        height: 50px;
+        border: none;
+        background-color: #26B225;
+        color: #ececec;
+        font-size: 1em;
+        text-transform: uppercase;
+        border-radius: 5px;
+        cursor: pointer; }
+      .LoginLayout .page-splitter .page-splitter-right .login-box .lower {
+        display: flex;
+        flex-direction: row;
+        margin-top: 5%;
+        justify-content: space-between; }
+      .LoginLayout .page-splitter .page-splitter-right .login-box a {
+        color: #4e4e4e;
+        margin-top: auto; }
+
+.menu {
+  display: flex;
+  flex-direction: row;
+  background-color: #242323; }
+  .menu .segment-1 {
+    display: flex;
+    margin-left: 1%; }
+  .menu h2 {
+    color: #fcfcfc;
+    align-self: center; }
+  .menu .seg {
+    flex: 1; }
+  .menu .segment-2 {
+    display: flex;
+    justify-content: flex-end; }
+    .menu .segment-2 .inner-seg-link {
+      padding: 2% 5%;
+      color: #ececec; }
+      .menu .segment-2 .inner-seg-link svg {
+        font-size: 1.3em; }
+    .menu .segment-2 .inner-seg-link:hover, .menu .segment-2 .active-nav {
+      background-color: #ececec;
+      color: #242323; }
+
+.toast-button button {
+  display: flex;
+  flex-direction: row;
+  border: none;
+  width: 60%;
+  margin: auto;
+  padding: 3% 0 3% 6%;
+  background-color: #e69c46;
+  cursor: pointer; }
+  .toast-button button svg {
+    font-size: 2em;
+    color: #fcfcfc; }
+  .toast-button button p {
+    align-self: center;
+    padding-left: 10px;
+    color: #fcfcfc;
+    font-size: 1.2em;
+    text-transform: uppercase; }
+
+.toast, .toast-active {
+  position: absolute;
+  opacity: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  left: 33%;
+  top: 10%;
+  width: 33%;
+  font-size: 2em;
+  background-color: #26B225;
+  color: white; }
+
+.toast svg, .toast-active svg {
+  margin: 1% 0;
+  padding: 5% 0;
+  font-size: 2em; }
+
+.toast-message {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  background-color: #fcfcfc;
+  color: #4e4e4e;
+  align-self: flex-end;
+  padding: 5% 0;
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.8em; }
+
+.toast-active {
+  animation: toast 4s ease-in; }
+
+@keyframes toast {
+  0% {
+    opacity: 0;
+    transform: translateY(-5px); }
+  10% {
+    transform: translateY(0px);
+    opacity: 1; }
+  90% {
+    opacity: 1; }
+  100% {
+    opacity: 0; } }
+
+.info-wrapper {
+  display: grid;
+  width: 80%;
+  margin: 2% auto;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-column-gap: 20px;
+  grid-row-gap: 20px;
+  grid-template-rows: 1fr 1fr 2fr 1fr 1fr 1fr; }
+
+.info-lower {
+  grid-row-start: 2;
+  background-color: #242323; }
+
+.info-box {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  background-color: #fcfcfc; }
+  .info-box svg {
+    flex: 1;
+    align-self: center;
+    font-size: 2.5em; }
+
+.green {
+  border-bottom: 5px solid #54a241; }
+  .green svg {
+    color: #54a241; }
+
+.warning {
+  border-bottom: 5px solid #d6be55; }
+  .warning svg {
+    color: #d6be55; }
+
+.blue {
+  border-bottom: 5px solid #5fb099; }
+  .blue svg {
+    color: #5fb099; }
+
+.orange {
+  border-bottom: 5px solid #e69c46; }
+  .orange svg {
+    color: #e69c46; }
+
+.data {
+  flex: 3;
+  align-self: center;
+  margin: 10% 0; }
+  .data .data-row {
+    font-size: 0.8em; }
+  .data p {
+    text-align: center;
+    color: #4e4e4e; }

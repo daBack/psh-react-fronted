@@ -1,0 +1,309 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans|Roboto:400,700|Rubik+Mono+One')
+
+//    ***************************************************
+//                    - GENERAL STYLING -
+//
+//    Including FONTS and VARIABLES.
+//    These should never be edited according to specific page.
+//    For that, use specific page wrapper.
+//
+//    ***************************************************
+
+*
+  margin: 0
+  padding: 0
+
+html, body
+  height: 100%
+// - FONTS -
+
+$font-header: 'Roboto', sans-serif
+$font-text: 'Open Sans', sans-serif
+
+h1, h2, h3, h4, button
+  font-family: $font-header
+  letter-spacing: 1px
+
+p, a, input
+  font-family: $font-text
+
+// - COLOR VARIABLES -
+
+$dark: #242323
+$dark-light: #4e4e4e
+$white-lighter: #fcfcfc
+$white-light: #ececec
+$accent-darker: #147D31
+$accent: #26B225
+$warning: #d6be55
+$blue: #5fb099
+$orange: #e69c46
+
+body
+  background-color: $white-light
+
+
+//    ***************************************************
+//                    - LOGIN STYLING -
+//    ***************************************************
+
+.LoginLayout
+
+  .page-splitter
+    display: flex
+    flex-direction: row
+    min-height: 100vh
+
+    .page-splitter-left
+      display: flex
+      flex-direction: column
+      flex: 2
+      background-color: $dark
+      // justify-content: center
+      padding-top: 5%
+
+      h1
+        text-transform: uppercase
+        color: $white-light
+        font-size: 2.5em
+        margin: 0 auto
+        width: 80%
+        border-bottom: 2px solid $white-light
+
+      button
+        width: 200px
+        height: 50px
+        border: none
+        background-color: $accent
+        color: $white-light
+        font-size: 1.2em
+        margin-top: 0 auto
+        width: 100%
+        text-transform: uppercase
+        border-radius: 5px
+        cursor: pointer
+
+      article
+        color: $white-light
+        margin: 0 auto
+        width: 80%
+
+        p
+          padding: 5% 0
+
+    .page-splitter-right
+      display: flex
+      flex: 3
+      background-color: $white-light
+      flex-direction: column
+      justify-content: center
+
+      .login-inner-wrapper
+        margin: auto
+        height: 80%
+        width: 50%
+
+      h1
+        color: $dark-light
+        font-size: 2.5em
+
+      .login-box
+        display: flex
+        flex-direction: column
+
+        input
+          border: none
+          border-bottom: 1px solid $dark-light
+          background-color: $white-light
+          margin: 2% 0
+          padding: 2% 0 1% 0
+          font-size: 0.9em
+
+        button
+          width: 200px
+          height: 50px
+          border: none
+          background-color: $accent
+          color: $white-light
+          font-size: 1em
+          // margin-top: 0 auto
+          // width: 100%
+          text-transform: uppercase
+          border-radius: 5px
+          cursor: pointer
+
+        .lower
+          display: flex
+          flex-direction: row
+          margin-top: 5%
+          justify-content: space-between
+        a
+          color: $dark-light
+          margin-top: auto
+
+//    ***************************************************
+//                    - Nav STYLING -
+//    ***************************************************
+
+.menu
+  display: flex
+  flex-direction: row
+  background-color: $dark
+
+  .segment-1
+    display: flex
+    margin-left: 1%
+
+  h2
+    color: $white-lighter
+    align-self: center
+
+  .seg
+    flex: 1
+
+  .segment-2
+    display: flex
+    justify-content: flex-end
+
+    .inner-seg-link
+      padding: 2% 5%
+      color: $white-light
+
+      svg
+        font-size: 1.3em
+
+    .inner-seg-link:hover, .active-nav
+      background-color: $white-light
+      color: $dark
+
+//    ***************************************************
+//                    - Toast STYLING -
+//    ***************************************************
+
+.toast-button
+  button
+    display: flex
+    flex-direction: row
+    // justify-content: center
+    border: none
+    width: 60%
+    margin: auto
+    padding: 3% 0 3% 6%
+    background-color: $orange
+    cursor: pointer
+    svg
+      font-size: 2em
+      color: $white-lighter
+    p
+      align-self: center
+      padding-left: 10px
+      color: $white-lighter
+      font-size: 1.2em
+      text-transform: uppercase
+
+.toast, .toast-active
+   position: absolute
+   opacity: 0
+   display: flex
+   flex-direction: column
+   justify-content: center
+   align-items: center
+   left: 33%
+   top: 10%
+   width: 33%
+   font-size: 2em
+   background-color: $accent
+   color: white
+
+.toast svg, .toast-active svg
+   margin: 1% 0
+   padding: 5% 0
+   font-size: 2em
+
+.toast-message
+   display: flex
+   width: 100%
+   justify-content: center
+   background-color: $white-lighter
+   color: $dark-light
+   align-self: flex-end
+   padding: 5% 0
+   font-family: $font-text
+   font-size: 0.8em
+
+.toast-active
+   animation: toast 4s ease-in
+
+
+@keyframes toast
+  0%
+    opacity: 0
+    transform: translateY(-5px)
+
+  10%
+    transform: translateY(0px)
+    opacity: 1
+
+  90%
+    opacity: 1
+
+  100%
+    opacity: 0
+
+//    ***************************************************
+//                    - Info STYLING -
+//    ***************************************************
+
+.info-wrapper
+  display: grid
+  width: 80%
+  margin: 2% auto
+  grid-template-columns: 1fr 1fr 1fr 1fr
+  grid-column-gap: 20px
+  grid-row-gap: 20px
+  grid-template-rows: 1fr 1fr 2fr 1fr 1fr 1fr
+
+.info-lower
+  grid-row-start: 2
+  background-color: $dark
+
+//    ***************************************************
+//                    - InfoLabel STYLING -
+//    ***************************************************
+
+.info-box
+  display: flex
+  flex-direction: row
+  width: 100%
+  background-color: $white-lighter
+
+  svg
+    flex: 1
+    align-self: center
+    font-size: 2.5em
+
+.green
+  border-bottom: 5px solid #54a241
+  svg
+    color: #54a241
+.warning
+  border-bottom: 5px solid $warning
+  svg
+    color: $warning
+.blue
+  border-bottom: 5px solid $blue
+  svg
+    color: $blue
+.orange
+    border-bottom: 5px solid $orange
+    svg
+      color: $orange
+.data
+  flex: 3
+  align-self: center
+  margin: 10% 0
+  .data-row
+    font-size: 0.8em
+  p
+    text-align: center
+    color: $dark-light
