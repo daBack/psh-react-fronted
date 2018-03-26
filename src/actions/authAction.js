@@ -7,13 +7,3 @@ export function addAuth(id, secret) {
     }
   }
 }
-
-export function fetchAuth(){
-  return {
-    type: 'FETCH_INFO_FULLFILLED',
-    payload: {
-      username: "hejsan",
-      password: "dasan",
-    }
-  }
-}

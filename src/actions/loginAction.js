@@ -1,3 +1,5 @@
+const apiAddress = 'http://localhost:5000';
+
 export function addUser(name, pass) {
   return {
     type: 'ADD_INFO',
@@ -8,6 +10,8 @@ export function addUser(name, pass) {
   }
 }
 
+
+
 export function fetchUser(){
   return {
     type: 'FETCH_INFO_FULLFILLED',
@@ -17,37 +21,43 @@ export function fetchUser(){
     }
   }
 }
-export function loginUser(user, pwd) {
+
+
+
+export function loginUser(user, pass) {
   return function(dispatch) {
     dispatch({type: 'FETCH_INFO'});
-
-    const info = {
-      user: user,
-      pwd: pwd,
-    }
+    let json;
+    let data = {
+      mail: user,
+      pwd: pass,
+    };
+    console.log("HFHAHFAHFHAW");
+    console.log(data);
     const request = async () => {
-      console.log("hej");
       try {
-        const response = await fetch('http://localhost:5000/api/users/login', {
+        const response = await fetch( apiAddress + '/api/users/login', {
+          body: JSON.stringify(data),
+          mode: 'cors',
+          headers: {
+            'content-type': 'application/json',
+            'Access-Control-Allow-Origin': '*',
+          },
           method: 'POST',
-          // credentials: 'same-origin',
-          mode: 'no-cors',
-          // headers: new Headers({
-          //     "ClientID": 'admin',
-          //     "ClientSecret": 'admin'
-          // }),
-          body: user, pwd,
         });
+
         const json = await response.json();
-        // const disp = await dispatch({type: FETCH_INFO_FULLFILLED, paylo})
+        const disp = await dispatch({type: 'FETCH_AUTH_FULLFILLED', payload: json })
         console.log(json);
-        console.log("hejsan");
+        return true;
       } catch (e) {
         dispatch({type: "FETCH_INFO_REJECTED", payload: e})
+        return false;
       }
     }
     request();
   }
+
 }
 // componentDidMount(){
 //     fetch('http://localhost:5000/api/payments/update', {

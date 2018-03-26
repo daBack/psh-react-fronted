@@ -91,7 +91,8 @@ body {
         justify-content: space-between; }
       .LoginLayout .page-splitter .page-splitter-right .login-box a {
         color: #4e4e4e;
-        margin-top: auto; }
+        margin-top: auto;
+        margin-left: 20px; }
 
 .menu {
   display: flex;

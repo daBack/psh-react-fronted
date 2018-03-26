@@ -14,7 +14,7 @@ import { DefaultLayout, LoginLayout, AuthRoute, LoggingInRoute } from "./pages/L
 import Info from "./pages/Info"
 import Login from "./pages/login/Login"
 import Account from "./pages/account/Account"
-import LoginValidate from './pages/account/LoginValidate'
+import LoginValidate from './pages/login/LoginValidate'
 
 ReactDOM.render(
   <Provider store={store}>
@@ -23,7 +23,8 @@ ReactDOM.render(
                 <AuthRoute path="/info" component={Info} />
                 <DefaultLayout path="/account" component={Account} />
                 <LoginLayout path="/Login" component={Login} />
-                <LoggingInRoute path="/LoginValidate" component={LoginValidate} />
+                {/* <LoggingInRoute path="/LoginValidate" component={LoginValidate} /> */}
+                <LoginLayout path="/LoginValidate" component={LoginValidate} />
         </Switch>
     </Router>
   </Provider>,

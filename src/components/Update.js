@@ -9,7 +9,6 @@ const style = {
   gridRowStart: '3',
   gridRowEnd: '5',
   backgroundColor: '#fcfcfc',
-  borderBottom: '5px solid #e69c46',
 }
 
 const article = {

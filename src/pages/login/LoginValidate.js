@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import  { connect } from 'react-redux'
 import { addUser, fetchUser, loginUser } from '../../actions/loginAction'
 import { addAuth } from '../../actions/authAction'
+import { Redirect } from 'react-router-dom'
 
 class LoginValidate extends Component {
   constructor(props){
@@ -11,12 +12,13 @@ class LoginValidate extends Component {
     }
   }
   componentWillMount(){
-    const res = this.props.dispatch(loginUser("kalle", "hej"))
     // TODO: If returned right, return true and set clientid and ClientSecret
     // if not right, set infomessage to wrong pass and redirect to start..
     // also show message there.
+    console.log(this.props.userInfo);
+    const res = this.props.dispatch(loginUser(this.props.userInfo.username, this.props.userInfo.password))
     if (res) {
-      if (res.status == 200) {
+      if (res.code == 200) {
         let uID = res.data.clientID;
         let uSecret = res.data.clientSecret;
         this.props.dispatch(addAuth(uID, uSecret))
@@ -34,7 +36,9 @@ class LoginValidate extends Component {
   }
 
   render() {
-    if (this.state.accepted == true) {
+    if (!this.state.accepted) {
+      return '<p>Loading</p>';
+    } else if (this.state.accepted == true) {
       return true;
     } else if (this.state.accepted == false) {
       return false;

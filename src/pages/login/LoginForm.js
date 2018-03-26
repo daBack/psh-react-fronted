@@ -31,7 +31,7 @@ class Login extends Component {
 
   submit(){
     if (this.state.username && this.state.password === "") {
-      console.log("No acount details");
+      console.log("No account details has been distributed.");
     }
     else {
       this.props.dispatch(addUser(this.state.username, this.state.password))
