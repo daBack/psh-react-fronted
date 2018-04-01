@@ -3,6 +3,7 @@ export default function reducer(state={
     username: "Kalle",
     password: "hej123",
   },
+  loggedIn: null,
   fetching: false,
   fetched: false,
   error: null,
@@ -19,6 +20,15 @@ export default function reducer(state={
         }
       }
     }
+    case 'LOGGED_IN_VERIFIED': {
+      return { ...state, loggedIn: true}
+    }
+    case 'LOGGED_IN_DENIED': {
+      return { ...state, fetching: false, loggedIn: false, infoMessage: "Fel användarnamn eller lösenord"}
+    }
+    case 'LOGGED_IN_SET': {
+      return { ...state, loggedIn: null}
+    }
     case 'FETCH_INFO': {
       return { ...state, fetching: true}
     }
@@ -33,7 +43,8 @@ export default function reducer(state={
         loginInfo: action.payload,
       }
     }
-
+    default: {
+      return { ...state, error: 'default'}
+    }
   }
-  return state
 }

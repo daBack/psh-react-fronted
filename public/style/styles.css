@@ -126,7 +126,8 @@ body {
   margin: auto;
   padding: 3% 0 3% 6%;
   background-color: #e69c46;
-  cursor: pointer; }
+  cursor: pointer;
+  border-radius: 50px; }
   .toast-button button svg {
     font-size: 2em;
     color: #fcfcfc; }
@@ -234,3 +235,25 @@ body {
   .data p {
     text-align: center;
     color: #4e4e4e; }
+
+.account-overview {
+  display: flex;
+  flex-direction: row; }
+  .account-overview .account-wrapper {
+    flex: 1; }
+  .account-overview .nav-item:hover {
+    border-left: 5px solid #26B225;
+    background-color: #1f1e1e; }
+  .account-overview .nav-item-active {
+    border-left: 5px solid #26B225;
+    background-color: #1f1e1e; }
+  .account-overview .link-wrapper {
+    display: flex;
+    flex: 1; }
+    .account-overview .link-wrapper .account-link-style {
+      padding: 2% 5%;
+      align-self: center;
+      color: #ececec;
+      background-color: #242323;
+      border-radius: 50px;
+      text-decoration: none; }

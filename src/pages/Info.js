@@ -1,12 +1,9 @@
 import React, { Component } from 'react'
-import Display from "../components/display"
-import Toast from "../components/Toast"
 import InfoLabel from '../components/InfoLabel'
 import Update from '../components/Update'
 import LineChart from '../components/LineChart'
 
 import  { connect } from 'react-redux'
-import { addUser, fetchUser } from '../actions/loginAction'
 
 const dbStyle = {
   display: 'flex',

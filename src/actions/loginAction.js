@@ -1,4 +1,6 @@
+import { addAuth } from './authAction'
 const apiAddress = 'http://localhost:5000';
+
 
 export function addUser(name, pass) {
   return {
@@ -12,13 +14,9 @@ export function addUser(name, pass) {
 
 
 
-export function fetchUser(){
-  return {
-    type: 'FETCH_INFO_FULLFILLED',
-    payload: {
-      username: "hejsan",
-      password: "dasan",
-    }
+export function zeroLoggedIn(){
+  return function(dispatch) {
+    dispatch({type: 'LOGGED_IN_SET'})
   }
 }
 
@@ -29,11 +27,9 @@ export function loginUser(user, pass) {
     dispatch({type: 'FETCH_INFO'});
     let json;
     let data = {
-      mail: user,
-      pwd: pass,
+      Email: user,
+      Pwd: pass,
     };
-    console.log("HFHAHFAHFHAW");
-    console.log(data);
     const request = async () => {
       try {
         const response = await fetch( apiAddress + '/api/users/login', {
@@ -47,51 +43,22 @@ export function loginUser(user, pass) {
         });
 
         const json = await response.json();
-        const disp = await dispatch({type: 'FETCH_AUTH_FULLFILLED', payload: json })
-        console.log(json);
-        return true;
+        await dispatch({type: 'FETCH_AUTH_FULLFILLED', payload: json })
+        if (json.code === 200) {
+          console.log("jag är inne");
+          await dispatch(addAuth(json.data.ClientID, json.data.ClientSecret))
+          await dispatch({type:'LOGGED_IN_VERIFIED'})
+        }
+        else {
+          console.log("Code from respons was not 200, Fix redirect to start with message.");
+          await dispatch({ type:'LOGGED_IN_DENIED'})
+        }
       } catch (e) {
-        dispatch({type: "FETCH_INFO_REJECTED", payload: e})
-        return false;
+        await dispatch({type: "FETCH_INFO_REJECTED", payload: e})
+        await dispatch({type:"LOGGED_IN_DENIED"})
       }
     }
     request();
   }
 
 }
-// componentDidMount(){
-//     fetch('http://localhost:5000/api/payments/update', {
-//         method: 'GET',
-//         credentials: 'same-origin',
-//         mode: 'no-cors',
-//         headers: new Headers({
-//             "ClientID": 'admin',
-//             "ClientSecret": 'admin'
-//         })
-//     })
-//     .then(res => {
-//         console.log(res.status);
-//         console.log(res.ok);
-//         console.log(res.statusText);
-//         if (!res.ok) {
-//             throw Error("Something went wrong")
-//         }
-//         else if (res.status == 401) {
-//             console.log("hej");
-//             this.setState({
-//                 butt: "Unauthorized"
-//             })
-//         }
-//         return res
-//     })
-//     .then(res => res.json())
-//     .then(res => {
-//         this.setState({
-//             butt : res
-//         })
-//         }, () => {
-//             this.setState({
-//                 requestFailed: true
-//             })
-//         })
-//     }

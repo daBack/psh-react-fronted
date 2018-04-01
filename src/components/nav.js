@@ -1,5 +1,5 @@
-import React, {Component} from 'react';
-import {BrowserRouter as Router, Route, Link, Switch, NavLink} from 'react-router-dom';
+import React, {Component} from 'react'
+import { NavLink } from 'react-router-dom'
 
 class Nav extends Component {
     render() {

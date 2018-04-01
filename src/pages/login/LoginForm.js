@@ -1,14 +1,12 @@
 import React, {Component} from 'react'
-import {
-  BrowserRouter as Router,
-  Route,
-  Link,
-  Redirect,
-  Switch
-} from 'react-router-dom'
+import { Redirect } from 'react-router-dom'
 
 import  { connect } from 'react-redux'
 import { addUser } from '../../actions/loginAction'
+
+const p = {
+  color: '#e96c56'
+}
 
 class Login extends Component {
 
@@ -50,11 +48,14 @@ class Login extends Component {
         <form className="login-box" onSubmit={this.submit.bind(this)}>
           <input value={this.state.username} onChange={this.handleChangeUser.bind(this)} type="text" className="login-input" placeholder="Användarnamn" required></input>
           <input value={this.state.password} onChange={this.handleChangePass.bind(this)} type="password" className="login-input" placeholder="Lösenord" required></input>
+          {this.props.infoM !== null && (
+            <p style={p}>{this.props.infoM}</p>
+          )}
           <div className="lower">
           <button><p>Logga in</p></button>
             <a href="/">Glömt dina inloggningsuppgifter?</a>
           </div>
-          {this.state.submitted == true && (
+          {this.state.submitted === true && (
             <Redirect to={'/loginValidate'}/>
           )}
         </form>
@@ -64,8 +65,10 @@ class Login extends Component {
 }
 
 export default connect((store) => {
+  console.log(store.login.infoMessage);
   return {
     userInfo: store.login.loginInfo,
+    infoM: store.login.infoMessage,
     foo: 1
   }
 })(Login);

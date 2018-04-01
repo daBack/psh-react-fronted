@@ -32,7 +32,8 @@ export default function reducer(state={
         auth: action.payload,
       }
     }
-
+    default: {
+      return { ...state, error: 'default'}
+    }
   }
-  return state
 }

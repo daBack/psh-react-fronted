@@ -192,6 +192,7 @@ body
     padding: 3% 0 3% 6%
     background-color: $orange
     cursor: pointer
+    border-radius: 50px
     svg
       font-size: 2em
       color: $white-lighter
@@ -308,3 +309,33 @@ body
   p
     text-align: center
     color: $dark-light
+
+//    ***************************************************
+//                    - Account STYLING -
+//    ***************************************************
+
+.account-overview
+  display: flex
+  flex-direction: row
+
+  .account-wrapper
+    flex: 1
+  .nav-item:hover
+    border-left: 5px solid $accent
+    background-color: #1f1e1e
+
+  .nav-item-active
+    border-left: 5px solid $accent
+    background-color: #1f1e1e
+
+  .link-wrapper
+    display: flex
+    flex: 1
+
+    .account-link-style
+      padding: 2% 5%
+      align-self: center
+      color: $white-light
+      background-color: $dark
+      border-radius: 50px
+      text-decoration: none
